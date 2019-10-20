@@ -51,7 +51,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 <bean id="getbook2" class="com.java.Book2" scope="singleton" init-method="init" destroy-method="destroy">
- <property name = "name" value="小孟4665"></property>  
+ <property name = "name" value="小孟4665"></property>   
  <property name = "date" ref = "datetime"></property>
  <property name = "book" value="武林外传2"></property>
  <property name = "webbook" ref="getbook"></property>
