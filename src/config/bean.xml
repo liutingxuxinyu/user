@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- bean definitions here   "prototype" -->
+
+<bean id = "datetime" class = "java.util.Date"></bean>
+
+<bean id="getbook" class="com.java.Book" scope="singleton" init-method="init" destroy-method="destroy">
+ <constructor-arg name = "name" value="小孟"></constructor-arg>
+ <constructor-arg name = "date" ref = "datetime"></constructor-arg>
+ <constructor-arg name = "book" value="武林外传"></constructor-arg>
+</bean>
+
+<bean id ="myCustomer" class = "com.java.MyCustomer">
+<property name="list">
+	<list>
+		<value>aaa</value>
+		<value>bbb</value>
+		<value>ccc</value>
+	</list>
+</property>
+
+<property name="set">
+	<set>
+		<value>set1</value>
+		<value>set2</value>
+		<value>set3</value>
+	</set>
+</property>
+
+<property name="map">
+	<map>
+		<entry key = "map1" value="map1"></entry>
+		<entry key = "map2" value="map2"></entry>
+		<entry key = "map3" value="map3"></entry>
+	</map>
+</property>
+
+<property name="properties">
+	<props>
+		<prop key="properties1">properties1</prop>
+		<prop key="properties2">properties2</prop>
+		<prop key="properties3">properties3</prop>
+	</props>
+</property>
+</bean>
+
+
+<bean id="getbook2" class="com.java.Book2" scope="singleton" init-method="init" destroy-method="destroy">
+ <property name = "name" value="小孟2"></property> 
+ <property name = "date" ref = "datetime"></property>
+ <property name = "book" value="武林外传2"></property>
+ <property name = "webbook" ref="getbook"></property>
+</bean>
+
+<bean id="staticfactor" class="com.java.Spring.StaticFactory" factory-method="staticFactoryInfo"></bean>
+
+<bean id="factor" class="com.java.Factory"></bean>
+<bean id="dgrf" factory-bean="factor" factory-method="FactoryInfo"></bean>
+
+</beans>
